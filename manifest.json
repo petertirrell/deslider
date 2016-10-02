@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+
+  "name": "Flatten Slideshow",
+  "description": "This extension converts news site slideshows (such as mlive.com) into a single page containing all slides",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+	"default_title": "Reformat slide show!"
+  },
+  "permissions": [
+    "activeTab",
+	"tabs",
+	"*://*/*"
+  ],
+  "content_scripts": [
+    {
+        "matches": ["*://*/*"],
+        "js": ["getSlides.js"]
+    }
+   ]
+}
