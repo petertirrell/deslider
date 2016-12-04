@@ -10,11 +10,17 @@ chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
 			
 		// }
 		var container = "";
+		var counter = 0;
 		for(i = 0; i < slides.length; i++){
+			counter += 1;
+			var counterDiv = '<div class="slideNumber">' + counter.toString() + '/' + slides.length.toString() + '</div>'			
 			// every slide, create a new div
 			var newDiv = document.createElement('div');
+			newDiv.className = 'material';
+			newDiv.innerHTML += counterDiv;
 			for(j = 0; j < slides[i].children.length; j++){
-				newDiv.innerHTML += slides[i].children[j].outerHTML;
+				var contents = '<div class="slideContents">' + slides[i].children[j].outerHTML + '</div>';
+				newDiv.innerHTML += contents;
 			}
 			container += newDiv.outerHTML;
 		}

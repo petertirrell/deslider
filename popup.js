@@ -25,7 +25,7 @@ function getCurrentTabSlides(callback) {
     var tab = tabs[0];
 
     chrome.tabs.getSelected(null, function(tab){
-		chrome.tabs.sendMessage(tab.id, {text: 'foo'}, function(slides){
+		chrome.tabs.sendMessage(tab.id, {text: ''}, function(slides){
 			callback(slides);
 		});
 	});
@@ -39,7 +39,6 @@ function renderStatus(statusText) {
 document.addEventListener('DOMContentLoaded', function() {
   getCurrentTabSlides(function(slides) {
 	  // get slides by class
-	  var foo = slides;
 	  if(slides == null){
 		  renderStatus('No slideshow was detected on this page!');
 	  }

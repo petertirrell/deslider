@@ -1,24 +1,31 @@
 {
   "manifest_version": 2,
-
-  "name": "Flatten Slideshow",
+  "name": "Deslider",
   "description": "This extension converts news site slideshows (such as mlive.com) into a single page containing all slides",
   "version": "1.0",
-
   "browser_action": {
-    "default_icon": "icon.png",
+    "default_icon": "icon16.png",
     "default_popup": "popup.html",
-	"default_title": "Reformat slide show!"
+    "default_title": "Show all slides on a single page"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
   },
   "permissions": [
     "activeTab",
-	"tabs",
-	"*://*/*"
+    "tabs",
+    "*://*/*"
   ],
   "content_scripts": [
     {
-        "matches": ["*://*/*"],
-        "js": ["getSlides.js"]
+      "matches": [
+        "*://*/*"
+      ],
+      "js": [
+        "getSlides.js"
+      ]
     }
-   ]
+  ]
 }
